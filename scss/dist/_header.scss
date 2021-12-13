@@ -1,0 +1,101 @@
+@use "variables";
+@use "flexbox";
+
+.header {
+  padding: 1.5rem 10.3125rem;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  background-color: variables.$white;
+
+  nav {
+    .header-cta {
+      display: block;
+      border-radius: 100px;
+      text-decoration: none;
+      color: variables.$white;
+      padding: 0.75rem 1.5rem;
+      background-image: linear-gradient(
+        to right,
+        variables.$limeGreen,
+        variables.$brightCyan
+      );
+    }
+    .header-nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      li {
+        a {
+          text-decoration: none;
+          color: variables.$grayishBlue;
+          padding-inline: 1rem;
+        }
+      }
+    }
+    .header-menu {
+      span {
+        width: 22px;
+        height: 2px;
+        background-color: variables.$darkBlue;
+        display: block;
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  &-hamburger-menu,
+  &-close-menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1.5rem;
+
+    nav {
+      .header-cta {
+        display: none;
+      }
+      .header-nav-menu {
+        background-color: variables.$white;
+        position: absolute;
+        top: 100px;
+        left: 1.5rem;
+        right: 1.5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 30px 60px variables.$darkBlue;
+
+        li {
+          a {
+            text-decoration: none;
+            color: variables.$grayishBlue;
+            padding-inline: 0rem;
+            padding: 1rem;
+            font-size: variables.$bodyFontSize;
+            color: variables.$darkBlue;
+          }
+          margin-bottom: 1em;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .header-hamburger-menu {
+        display: block;
+      }
+
+      header-close-menu {
+        display: none;
+      }
+    }
+  }
+}
